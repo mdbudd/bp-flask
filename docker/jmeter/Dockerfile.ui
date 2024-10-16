@@ -1,0 +1,33 @@
+FROM alpine:3.19.1
+
+LABEL ORIGIN_MAINTAINER="Tien Tran"
+LABEL MAINTAINER="ccclin"
+
+RUN apk --no-cache --update add x11vnc openssl xvfb openbox xfce4-terminal supervisor sudo tar curl ttf-droid fontconfig openjdk21
+
+RUN fc-cache -f
+
+# add alpine user with random password
+RUN addgroup alpine \
+&& adduser  -G alpine -s /bin/sh -D alpine \
+&& echo "alpine:$(date | md5sum | head -c 32)" | /usr/sbin/chpasswd \
+&& echo "alpine    ALL=(ALL) ALL" >> /etc/sudoers
+# clean up apk cache
+RUN rm -rf /apk /tmp/* /var/cache/apk/*
+# install jmeter
+RUN curl -fsSLO https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz \
+&& mkdir /opt/jmeter \
+&& tar --strip-components=1 -xvzf apache-jmeter-5.6.3.tgz -C /opt/jmeter \
+&& rm -rf apache-jmeter-5.6.3.tgz \
+&& ln -s /opt/jmeter/bin/jmeter /usr/bin/jmeter
+
+ADD docker/jmeter/etc /etc
+
+WORKDIR /home/alpine
+USER alpine
+
+ENV RESOLUTION 1920x1080x24
+
+EXPOSE 5900
+
+CMD ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]

@@ -1,0 +1,12 @@
+.vscode
+__pycache__
+envfile.ini
+certs
+misc/*
+!misc/.keep
+dist
+vendor
+profile
+data.db
+*.zip
+*.bat
