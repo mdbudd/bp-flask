@@ -23,7 +23,7 @@ class AwesomeAPI(MethodResource, Resource):
         """
         Get method represents a GET API method
         """
-        return {"message": "My First Awesome API"}
+        return {"message": "Example API"}
 
     @doc(description="My First GET Awesome API.", tags=["Awesome"])
     @use_kwargs(AwesomeRequestSchema, location=("json"))
@@ -32,4 +32,4 @@ class AwesomeAPI(MethodResource, Resource):
         """
         Get method represents a GET API method
         """
-        return {"message": "My First Awesome API"}
+        return {"message": "Example API"}

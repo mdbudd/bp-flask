@@ -15,11 +15,11 @@ class AppTestCase(unittest.TestCase):
 
     def test_awesome(self):
         # response = self.client.post("/", data={"content": "hello world"})
-        response = self.client.get("/awesome")
+        response = self.client.get("/api/v0/awesome")
         assert response.status_code == 200
 
         data = json.loads(response.get_data(as_text=True))
-        self.assertEqual(data["message"], "My First Awesome API")
+        self.assertEqual(data["message"], "Example API")
 
 
 if __name__ == "__main__":
