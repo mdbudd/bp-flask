@@ -1,11 +1,8 @@
 import os
-from api.app import api, app, docs
+from api.app import app
 from config import port as port_dev, debug, context
-from resources.awesome import AwesomeAPI
 
 port = int(os.getenv("PORT", port_dev))
-
-
 
 if __name__ == "__main__":
     app.run(

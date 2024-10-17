@@ -33,6 +33,7 @@ app.config.update(
         "APISPEC_SWAGGER_UI_URL": "/swag",
     }
 )
+
 docs = FlaskApiSpec(app)
 
 for resource in resourceList:

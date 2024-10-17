@@ -5,12 +5,10 @@ import os
 import configparser
 from apispec import APISpec
 from apispec.ext.marshmallow import MarshmallowPlugin
-
 # from flask_apispec.extension import FlaskApiSpec
 
 config = configparser.ConfigParser()
 config.read("/python/flask/envfile.ini")
-print(config["DEFAULT"]["DEBUG"])
 
 debug = config["DEFAULT"]["DEBUG"]
 context = config["DEFAULT"]["CONTEXT"]
