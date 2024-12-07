@@ -33,6 +33,7 @@ dsnStr = "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST={})(PORT={}))(CONNECT_DATA=(
 DATABASE_URL = "oracle://" + oracle_username + ":" + oracle_password + "@" + dsnStr
 
 jwt_secret = config["DEFAULT"]["JWT_SECRET"]
+jwks_url = config["DEFAULT"]["JWKS_URL"]
 
 ldaps_host = config["DEFAULT"]["LDAPS_HOST"]
 ldaps_port = config["DEFAULT"]["LDAPS_PORT"]

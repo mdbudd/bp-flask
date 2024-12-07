@@ -10,14 +10,14 @@
 # )
 from resources.user import UserAuth
 # from resources.user import UserRefresh, UserImpersonate, UserDetails, UserInfo, UserLogout
-# from resources.data import Data
+from resources.data import Data
 
 from resources.awesome import AwesomeAPI
 
 resourceList = [
     # {"class": HierarchyOverview, "route(s)": ["/reportees"]},
     # {"class": HierarchyManagement, "route(s)": ["/managers/<int:positionId>"]},
-    # {"class": Data, "route(s)": ["/data"]},
+    {"class": Data, "route(s)": ["/data"]},
     {"class": UserAuth, "route(s)": ["/auth"]},
     # {"class": UserLogin, "route(s)": ["/login"]},
     # {"class": UserRefresh, "route(s)": ["/refresh"]},

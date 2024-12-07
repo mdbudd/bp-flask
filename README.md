@@ -4,6 +4,8 @@ A project that so far uses to Docker create a Jupyter server, a Flask API & sign
 
 ## Python
 
+Prep by copying `/python/flask/envfile.example.ini` to `/python/flask/envfile.ini` and configure accordingly. Base config will run.
+
 To build the main python image and keep the container running by hosting a Flask API, run the following...
 ```
 make compose
